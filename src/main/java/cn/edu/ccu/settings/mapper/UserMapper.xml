@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.ccu.settings.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="cn.edu.ccu.settings.domain.User">
+        <id column="id" property="id" />
+        <result column="seat_number" property="seatNumber" />
+        <result column="total_assets" property="totalAssets" />
+    </resultMap>
+
+    <select id="selectUserBySeatNumber" resultMap="BaseResultMap">
+        select seat_number from t_user where seat_number = #{seatNumber};
+    </select>
+
+</mapper>

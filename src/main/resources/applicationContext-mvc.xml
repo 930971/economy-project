@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <mvc:default-servlet-handler />
+
+    <context:component-scan base-package="cn.edu.ccu.workarea.controller" />
+    <context:component-scan base-package="cn.edu.ccu.settings.web.controller" />
+    <context:component-scan base-package="cn.edu.ccu.index.controller" />
+
+    <mvc:annotation-driven />
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/settings/**"/>
+            <mvc:mapping path="/workarea/**"/>
+            <mvc:exclude-mapping path="/settings/user/toLogin.do"/>
+            <mvc:exclude-mapping path="/settings/user/login.do"/>
+            <bean class="cn.edu.ccu.settings.web.interceptor.LoginInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.edu.ccu.workarea.mapper.InformationMapper">
+
+    <resultMap id="BaseResultMap" type="cn.edu.ccu.workarea.domain.Operation">
+        <id column="id" property="id"/>
+        <result column="view" property="view" />
+        <result column="stop_time" property="stopTime" />
+        <result column="investment" property="investment" />
+        <result column="profit" property="profit" />
+        <result column="use_time" property="useTime" />
+        <result column="frequency" property="frequency" />
+        <result column="seat_number" property="seatNumber" />
+        <result column="proportion" property="proportion" />
+        <result column="value" property="value" />
+    </resultMap>
+
+    <insert id="insertInformation" parameterType="cn.edu.ccu.workarea.domain.Operation">
+        insert into t_operation(view, stop_time, investment, profit, use_time, frequency, seat_number, proportion, value)
+        values (#{view}, #{stopTime}, #{investment}, #{profit}, #{useTime}, #{frequency}, #{seatNumber}, #{proportion}, #{value})
+    </insert>
+
+    <select id="selectOperation" parameterType="map" resultMap="BaseResultMap">
+        select op.id, op.seat_number, u1.total_assets as totalAssets, op.frequency, op.proportion, op.value, op.view, op.stop_time, op.investment, op.profit, op.use_time
+            from t_operation op
+            join t_user u1 on op.seat_number = u1.seat_number;
+    </select>
+
+</mapper>

@@ -1,0 +1,74 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    font-size: 12px;
+}
+
+.login_bg{
+    background: url(../img/index_bg.png) no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+.loginHeader{
+    text-align: center;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.loginHeader h1, p{
+    color: #FFFFFF;
+    text-shadow: 2px 2px #000000;
+}
+
+.loginCont{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #00000080;
+    padding: 90px 50px;
+}
+
+.loginForm{
+    padding: 60px 9px 37px 9px;
+    width: 320px;
+    height: 97px;
+}
+
+.inputBox{
+    height: 70px;
+}
+
+.inputBox input{
+    width: 80%;
+    margin-left: 35px;
+    padding: 10px 5px 10px 20px;
+    border: 1px solid rgb(178, 178, 178);
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px 0px rgba(168, 168, 168, 0.9) inset;
+}
+
+.GoBtn {
+    width: 197px;
+    height: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #93b5cf;
+    color: #FFF;
+    font-size: 18px;
+    border: 1px solid #00000080;
+    border-radius: 10px;
+}
+
+.GoBtn:hover {
+    background: #d1c2d3;
+}
+
+.GoBtn:active {
+    background: #894276;
+    box-shadow: 0px 1px 6px 4px rgba(0, 0, 0, 0.2) inset;
+}
